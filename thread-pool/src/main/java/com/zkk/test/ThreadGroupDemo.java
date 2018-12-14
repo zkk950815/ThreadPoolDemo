@@ -30,7 +30,7 @@ public class ThreadGroupDemo {
         }
 
 
-        threadList.forEach(thread -> System.out.println(thread.isDaemon()));
+        threadList.forEach(thread -> thread.start());
         System.out.println(group.isDaemon());
         System.out.println("main线程结束");
     }
