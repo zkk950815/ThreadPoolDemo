@@ -9,6 +9,8 @@ public class ThreadGroupDemo {
         Runnable runnable;
         List<Thread> threadList = new ArrayList<>();
         ThreadGroup group = new ThreadGroup("group");
+        //未设置成功
+        group.setDaemon(true);
         for (int i = 0;i<10;i++) {
             //runnable = () ->System.out.println(Thread.currentThread().getThreadGroup().getName() + ": " + Thread.currentThread().getName());
             runnable = new Runnable() {
@@ -26,12 +28,10 @@ public class ThreadGroupDemo {
 
             threadList.add(new Thread(group, runnable));
         }
-        //未设置成功
-        group.setDaemon(true);
+
 
         threadList.forEach(thread -> System.out.println(thread.isDaemon()));
+        System.out.println(group.isDaemon());
         System.out.println("main线程结束");
-
-
     }
 }
